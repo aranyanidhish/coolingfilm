@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "Car Dash Camera 1080P",
+    "price": 2499,
+    "category": "Electronics",
+    "image": "https://placehold.co/400x300/1a1a2e/e94560?text=Dash+Camera",
+    "description": "Full HD 1080P dash cam with night vision and loop recording."
+  },
+  {
+    "id": 2,
+    "name": "Leather Steering Wheel Cover",
+    "price": 599,
+    "category": "Interior",
+    "image": "https://placehold.co/400x300/16213e/0f3460?text=Steering+Cover",
+    "description": "Premium leather steering wheel cover with anti-slip grip."
+  },
+  {
+    "id": 3,
+    "name": "Car Phone Mount - Magnetic",
+    "price": 349,
+    "category": "Electronics",
+    "image": "https://placehold.co/400x300/1a1a2e/e94560?text=Phone+Mount",
+    "description": "360-degree rotating magnetic phone holder for dashboard."
+  },
+  {
+    "id": 4,
+    "name": "LED Interior Ambient Lights",
+    "price": 799,
+    "category": "Lighting",
+    "image": "https://placehold.co/400x300/0f3460/53d8fb?text=LED+Lights",
+    "description": "RGB LED strip lights with app control and music sync."
+  },
+  {
+    "id": 5,
+    "name": "Car Seat Organizer - Back",
+    "price": 449,
+    "category": "Interior",
+    "image": "https://placehold.co/400x300/16213e/0f3460?text=Seat+Organizer",
+    "description": "Multi-pocket back seat organizer with tablet holder."
+  },
+  {
+    "id": 6,
+    "name": "Tyre Inflator - Portable",
+    "price": 1899,
+    "category": "Tools",
+    "image": "https://placehold.co/400x300/1a1a2e/e94560?text=Tyre+Inflator",
+    "description": "12V portable air compressor with digital pressure gauge."
+  },
+  {
+    "id": 7,
+    "name": "Car Vacuum Cleaner",
+    "price": 1299,
+    "category": "Tools",
+    "image": "https://placehold.co/400x300/0f3460/53d8fb?text=Vacuum+Cleaner",
+    "description": "High-power handheld vacuum with HEPA filter and attachments."
+  },
+  {
+    "id": 8,
+    "name": "Sunshade Windshield Cover",
+    "price": 299,
+    "category": "Exterior",
+    "image": "https://placehold.co/400x300/16213e/0f3460?text=Sunshade",
+    "description": "Foldable UV protection sunshade for front windshield."
+  },
+  {
+    "id": 9,
+    "name": "Bluetooth FM Transmitter",
+    "price": 699,
+    "category": "Electronics",
+    "image": "https://placehold.co/400x300/1a1a2e/e94560?text=FM+Transmitter",
+    "description": "Bluetooth 5.0 FM transmitter with dual USB charging ports."
+  },
+  {
+    "id": 10,
+    "name": "Car Floor Mats - Universal",
+    "price": 999,
+    "category": "Interior",
+    "image": "https://placehold.co/400x300/0f3460/53d8fb?text=Floor+Mats",
+    "description": "Waterproof rubber floor mats, universal fit, set of 4."
+  },
+  {
+    "id": 11,
+    "name": "Reverse Parking Camera",
+    "price": 1599,
+    "category": "Electronics",
+    "image": "https://placehold.co/400x300/1a1a2e/e94560?text=Parking+Camera",
+    "description": "Wide-angle HD reverse camera with night vision and guidelines."
+  },
+  {
+    "id": 12,
+    "name": "Car Perfume - Premium",
+    "price": 199,
+    "category": "Interior",
+    "image": "https://placehold.co/400x300/16213e/0f3460?text=Car+Perfume",
+    "description": "Long-lasting luxury car air freshener with wooden diffuser."
+  }
+]

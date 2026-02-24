@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoGear - Car Accessories</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">AutoGear</h1>
+      <p class="tagline">Premium Car Accessories</p>
+    </div>
+  </header>
+
+  <!-- Search & Filter Bar -->
+  <section class="filter-bar">
+    <div class="container">
+      <input type="text" id="searchInput" placeholder="Search accessories..." class="search-input">
+      <div class="category-filters" id="categoryFilters">
+        <button class="filter-btn active" data-category="All">All</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Count -->
+  <section class="container">
+    <p class="product-count" id="productCount"></p>
+  </section>
+
+  <!-- Product Grid -->
+  <main class="container">
+    <div class="product-grid" id="productGrid">
+      <!-- Products loaded dynamically -->
+    </div>
+    <p class="no-results" id="noResults" style="display:none;">No products found.</p>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 AutoGear. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    let allProducts = [];
+
+    // Fetch products from JSON
+    async function loadProducts() {
+      try {
+        const response = await fetch('products.json');
+        allProducts = await response.json();
+        buildCategoryFilters();
+        renderProducts(allProducts);
+      } catch (error) {
+        document.getElementById('productGrid').innerHTML =
+          '<p class="error">Failed to load products. Please try again later.</p>';
+      }
+    }
+
+    // Build category filter buttons
+    function buildCategoryFilters() {
+      const categories = [...new Set(allProducts.map(p => p.category))];
+      const container = document.getElementById('categoryFilters');
+      categories.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn';
+        btn.dataset.category = cat;
+        btn.textContent = cat;
+        container.appendChild(btn);
+      });
+
+      // Attach click events
+      container.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          container.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          applyFilters();
+        });
+      });
+    }
+
+    // Render product cards
+    function renderProducts(products) {
+      const grid = document.getElementById('productGrid');
+      const noResults = document.getElementById('noResults');
+      const countEl = document.getElementById('productCount');
+
+      if (products.length === 0) {
+        grid.innerHTML = '';
+        noResults.style.display = 'block';
+        countEl.textContent = '0 products';
+        return;
+      }
+
+      noResults.style.display = 'none';
+      countEl.textContent = `${products.length} product${products.length !== 1 ? 's' : ''}`;
+
+      grid.innerHTML = products.map(product => `
+        <div class="product-card">
+          <div class="product-image">
+            <img src="${product.image}" alt="${product.name}" loading="lazy">
+            <span class="product-category">${product.category}</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">${product.name}</h3>
+            <p class="product-desc">${product.description}</p>
+            <p class="product-price">&#8377;${product.price.toLocaleString('en-IN')}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Apply search + category filter
+    function applyFilters() {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      const activeCategory = document.querySelector('.filter-btn.active').dataset.category;
+
+      let filtered = allProducts;
+
+      if (activeCategory !== 'All') {
+        filtered = filtered.filter(p => p.category === activeCategory);
+      }
+
+      if (searchTerm) {
+        filtered = filtered.filter(p =>
+          p.name.toLowerCase().includes(searchTerm) ||
+          p.description.toLowerCase().includes(searchTerm)
+        );
+      }
+
+      renderProducts(filtered);
+    }
+
+    // Search input listener
+    document.getElementById('searchInput').addEventListener('input', applyFilters);
+
+    // Load on page ready
+    loadProducts();
+  </script>
+
+</body>
+</html>
